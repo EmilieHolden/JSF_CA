@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "Libre Baskerville", serif;
+  --font-body: "Source Sans 3", sans-serif;
+
+  --color-bg: #fff;
+  --color-text: #111;
+
+  --color-primary: #67bed9;
+  --color-secondary: #efedb3;
+  --color-beige: #e3dcc7;
+  --color-neutral: #d1d5db;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+}
+
+@keyframes spinner-wave {
+  0%,
+  100% {
+    transform: scaleY(0.5);
+  }
+
+  50% {
+    transform: scaleY(1);
+  }
+}
