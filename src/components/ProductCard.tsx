@@ -42,7 +42,9 @@ function ProductCard({ product }: ProductCardProps) {
                 {product.discountedPrice} NOK
               </span>
 
-              <span className="text-sm line-through">{product.price} NOK</span>
+              <span className="text-sm text-neutral-500 line-through">
+                {product.price} NOK
+              </span>
             </div>
           ) : (
             <p className="mt-2 font-semibold">{product.price} NOK</p>
