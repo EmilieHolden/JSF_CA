@@ -7,6 +7,7 @@ import ProductView from "./views/ProductView"
 import CartView from "./views/CartView"
 import ContactView from "./views/ContactView"
 import CheckoutSuccessView from "./views/CheckoutSuccessView"
+import NotFoundView from "./views/NotFoundView"
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/cart" element={<CartView />} />
           <Route path="/contact" element={<ContactView />} />
           <Route path="/checkout-success" element={<CheckoutSuccessView />} />
+          <Route path="*" element={<NotFoundView />} />
         </Routes>
       </main>
       <Footer />

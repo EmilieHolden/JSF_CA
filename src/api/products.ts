@@ -18,8 +18,12 @@ export async function getProducts() {
   return result.data
 }
 
-export async function getProduct(id: string): Promise<Product> {
+export async function getProduct(id: string): Promise<Product | null> {
   const response = await fetch(`${API_URL}/${id}`)
+
+  if (response.status === 404) {
+    return null
+  }
 
   if (!response.ok) {
     throw new Error("Failed to fetch product")
