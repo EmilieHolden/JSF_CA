@@ -1,5 +1,6 @@
 import { useCartStore } from "../stores/cartStore"
 import { useNavigate } from "react-router-dom"
+import toast from "react-hot-toast"
 import Breadcrumbs from "../components/Breadcrumbs"
 import { useState, type ChangeEvent, type SubmitEvent } from "react"
 
@@ -29,6 +30,11 @@ function CartView() {
     (total, item) => total + item.product.discountedPrice * item.quantity,
     0
   )
+
+  function handleRemoveCartItem(productId: string) {
+    removeItem(productId)
+    toast("Product has been removed from cart")
+  }
 
   const [formData, setFormData] = useState<CheckoutFormData>({
     fullName: "",
@@ -118,7 +124,7 @@ function CartView() {
 
                   <button
                     type="button"
-                    onClick={() => removeItem(item.product.id)}
+                    onClick={() => handleRemoveCartItem(item.product.id)}
                     className="mt-4 text-sm underline transition hover:text-primary"
                   >
                     Remove

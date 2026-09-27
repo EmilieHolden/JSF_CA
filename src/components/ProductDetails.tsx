@@ -1,5 +1,6 @@
 import type { Product } from "../types/product"
 import { useCartStore } from "../stores/cartStore"
+import toast from "react-hot-toast"
 
 interface ProductDetailsProps {
   product: Product
@@ -8,6 +9,11 @@ interface ProductDetailsProps {
 function ProductDetails({ product }: ProductDetailsProps) {
   const addItem = useCartStore((state) => state.addItem)
   const hasDiscount = product.discountedPrice < product.price
+
+  function handleAddToCart() {
+    addItem(product)
+    toast.success("Product added to cart")
+  }
 
   return (
     <article>
@@ -58,7 +64,7 @@ function ProductDetails({ product }: ProductDetailsProps) {
 
           <button
             type="button"
-            onClick={() => addItem(product)}
+            onClick={handleAddToCart}
             className="mt-8 w-full rounded-md bg-primary opacity-85 px-5 py-3 font-medium text-bg font-light transition hover:opacity-100"
           >
             Add to Cart

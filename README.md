@@ -32,6 +32,7 @@ https://altorashop.netlify.app/
 - React Router
 - Zustand
 - Tailwind CSS
+- React Hot Toast
 
 ## Getting Started
 
